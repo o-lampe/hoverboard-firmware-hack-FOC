@@ -10,8 +10,8 @@
 // Ubuntu: define the desired build variant here if you want to use make in console
 // or use VARIANT environment variable for example like "make -e VARIANT=VARIANT_NUNCHUK". Select only one at a time.
 #if !defined(PLATFORMIO)
-  //#define VARIANT_ADC         // Variant for control via ADC input
-  #define VARIANT_USART       // Variant for Serial control via USART3 input
+  #define VARIANT_ADC         // Variant for control via ADC input
+  //#define VARIANT_USART       // Variant for Serial control via USART3 input
   //#define VARIANT_NUNCHUK     // Variant for Nunchuk controlled vehicle build
   //#define VARIANT_PPM         // Variant for RC-Remote with PPM-Sum Signal
   //#define VARIANT_PWM         // Variant for RC-Remote with PWM Signal
@@ -144,7 +144,7 @@
 
 // Enable/Disable Motor
 #define MOTOR_LEFT_ENA                  // [-] Enable LEFT motor.  Comment-out if this motor is not needed to be operational
-//#define MOTOR_RIGHT_ENA                 // [-] Enable RIGHT motor. Comment-out if this motor is not needed to be operational
+#define MOTOR_RIGHT_ENA                 // [-] Enable RIGHT motor. Comment-out if this motor is not needed to be operational
 
 // Control selections
 #define CTRL_TYP_SEL    FOC_CTRL        // [-] Control type selection: COM_CTRL, SIN_CTRL, FOC_CTRL (default)
@@ -153,8 +153,8 @@
 
 // Limitation settings
 #define I_MOT_MAX       5              // [A] Maximum single motor current limit
-#define I_DC_MAX        17              // [A] Maximum stage2 DC Link current limit for Commutation and Sinusoidal types (This is the final current protection. Above this value, current chopping is applied. To avoid this make sure that I_DC_MAX = I_MOT_MAX + 2A)
-#define N_MOT_MAX       1000            // [rpm] Maximum motor speed limit
+#define I_DC_MAX        10              // [A] Maximum stage2 DC Link current limit for Commutation and Sinusoidal types (This is the final current protection. Above this value, current chopping is applied. To avoid this make sure that I_DC_MAX = I_MOT_MAX + 2A)
+#define N_MOT_MAX       200            // [rpm] Maximum motor speed limit
 
 // Field Weakening / Phase Advance
 #define FIELD_WEAK_ENA  0               // [-] Field Weakening / Phase Advance enable flag: 0 = Disabled (default), 1 = Enabled
@@ -300,7 +300,7 @@
     #define DEBUG_SERIAL_USART3           // right sensor board cable, disable if I2C (nunchuk or lcd) is used!
   #endif
 
-  // #define TANK_STEERING                   // use for tank steering, each input controls each wheel 
+   #define TANK_STEERING                   // use for tank steering, each input controls each wheel 
   // #define ADC_ALTERNATE_CONNECT           // use to swap ADC inputs
   // #define SUPPORT_BUTTONS_LEFT            // use left sensor board cable for button inputs.  Disable DEBUG_SERIAL_USART2!
   // #define SUPPORT_BUTTONS_RIGHT           // use right sensor board cable for button inputs. Disable DEBUG_SERIAL_USART3!
